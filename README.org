@@ -1,0 +1,12 @@
+* Dockerized Mocky.io
+
+*NOTE:* This image is built with a forked mocky.io repo, located at [[https://github.com/bmtKIA6/Mocky][Mocky.io]]
+
+** How to run
+
+#+BEGIN_SRC sh
+docker-compose up
+#+END_SRC
+
+By default mocky will listen on port [[http://localhost:9001][http://localhost:9001]]
+Edit docker-compose.yml if a different port name is desired

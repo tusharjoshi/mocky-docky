@@ -1,0 +1,26 @@
+version: "2"
+services:
+  mocky:
+    build:
+      context: "."
+    ports:
+      - "9001:9000"
+    volumes:
+      # persist sbt repos during the builds
+      - "mocky-mocky:/root"
+    tty: true
+    environment:
+      - SKIP_HTTPS=true
+      - MOCKY_STORAGE_VERSION=v2
+      - SECRET_KEY=Answer to the Ultimate Question of Life, the Universe, and Everything
+      - MONGODB_URL=mongodb://mongy:27017/mocky-docky
+
+  mongy:
+    image: mongo:latest
+    volumes:
+      - "mocky-mongo:/data/db"
+
+
+volumes:
+  mocky-mongo:
+  mocky-mocky:
