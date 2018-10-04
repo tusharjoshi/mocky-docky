@@ -10,3 +10,17 @@ docker-compose up
 
 By default mocky will listen on port [[http://localhost:9001][http://localhost:9001]]
 Edit docker-compose.yml if a different port name is desired
+
+
+* Run with self-signed HTTPS
+
+** Generate a certificate
+
+Sometimes you have to test both HTTP and HTTP.
+
+
+#+BEGIN_SRC sh
+openssl req -subj '/CN=localhost/O=Local Host/C=US' -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -keyout server.key -out server.crt
+#+END_SRC
+
+The HTTPS port is 9443: [[http://localhost:9001][https://localhost:9443]]
